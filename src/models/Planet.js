@@ -40,6 +40,24 @@ class Planet {
       });
     });
   }
+
+  /**
+   *  Retrieves a planet by its name.
+   *  @param {string} name - The name of the planet to retrieve.
+   *  @returns {Promise<Object>} A promise that resolves to a planet object.
+   */
+  static getPlanetByName(name) {
+    return new Promise((resolve, reject) => {
+      const query = `SELECT * FROM planets WHERE name = ? COLLATE NOCASE`;
+      db.get(query, [name], (err, row) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(row);
+        }
+      });
+    });
+  }
 }
 
 module.exports = Planet;

@@ -18,6 +18,6 @@ router.get("/", planetController.getAllPlanets);
  *  @returns {Object} A planet object with the specified ID.
  *  @throws {404} If the planet with the specified ID is not found.
  */
-router.get("/:id", planetController.getPlanetById);
+router.get("/:name", planetController.getPlanetByName);
 
 module.exports = router;

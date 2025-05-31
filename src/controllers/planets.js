@@ -20,7 +20,18 @@ async function getPlanetById(req, res) {
   res.status(200).json(planet);
 }
 
+async function getPlanetByName(req, res) {
+  const planet = await Planet.getPlanetByName(req.params.name);
+  if (!planet) {
+    return res
+      .status(404)
+      .json({ error: `Planet with name ${req.params.name} not found` });
+  }
+  res.status(200).json(planet);
+}
+
 module.exports = {
   getAllPlanets,
   getPlanetById,
+  getPlanetByName,
 };
