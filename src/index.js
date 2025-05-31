@@ -33,6 +33,9 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
+const planetsRouter = require("./routes/planets");
+app.use("/planets", planetsRouter);
+
 /**
  * Start the server
  *  @description This starts the server and listens on the specified port.
