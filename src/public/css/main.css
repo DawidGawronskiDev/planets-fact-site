@@ -23,6 +23,8 @@
 
   /* Base font size - makes rem calculations easier */
   font-size: 16px;
+
+  --space: 1rem;
 }
 
 /* Typography Styles */
@@ -59,6 +61,12 @@ h4 {
   text-transform: uppercase;
 }
 
+body {
+  background: url("/assets/background-stars.svg");
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+}
+
 p,
 body {
   font-family: var(--font-secondary);
@@ -74,6 +82,12 @@ body {
 
 .text-gray {
   color: var(--color-gray);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Responsive adjustments for smaller screens */

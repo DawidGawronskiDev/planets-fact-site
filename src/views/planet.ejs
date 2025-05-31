@@ -6,33 +6,119 @@
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <title><%= title %></title>
+    <style>
+      .planet {
+        margin: var(--space) 0 0 0;
+      }
+      /* Planet Container */
+      .planet-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--space);
+      }
+      /* Image Container Image */
+      .planet-container > *:first-child {
+        width: 100%;
+        flex: 3;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Planet Container Information */
+      .planet-container > *:last-child {
+        flex: 2;
+      }
+      .planet-image {
+        width: 100%;
+      }
+      /* Planet Description */
+      .planet-description-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space);
+      }
+      .planet-description {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space);
+      }
+      /* Planet Information */
+      .planet-info {
+        flex: 1;
+
+        margin: var(--space) 0 0 0;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space);
+      }
+      .planet-info > * {
+        flex: 1;
+      }
+      .planet-tabs {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space);
+      }
+      @media only screen and (max-width: 768px) {
+        .planet-container {
+          flex-direction: column;
+        }
+        .planet-image {
+          width: 50%;
+        }
+        .planet-description-container {
+          flex-direction: row;
+        }
+      }
+    </style>
   </head>
   <body>
     <%- include('partials/header') %>
     <main>
-      <div>
-        <div>
+      <div class="planet container">
+        <div class="planet-container">
           <!-- Planet Image -->
           <div>
             <img
               src="<%= planet.planet_image_path %>"
               alt="<%= planet.name %>"
+              class="planet-image"
             />
           </div>
           <!-- Planet Description -->
-          <div>
-            <h1><%= planet.name %></h1>
-            <p><%= planet.overview_content %></p>
-            <span
-              >Source:
-              <a href="<%= planet.overview_source %>" target="_blank"
-                >Wikipedia</a
-              ></span
-            >
+          <div class="planet-description-container">
+            <div class="planet-description">
+              <h1><%= planet.name %></h1>
+              <p><%= planet.overview_content %></p>
+              <span
+                >Source:
+                <a href="<%= planet.overview_source %>" target="_blank"
+                  >Wikipedia
+                  <img src="/assets/icon-source.svg" alt="Planet Source" /></a
+              ></span>
+            </div>
+            <div class="planet-tabs">
+              <a
+                href="/planets/<%= planet.name.toLowerCase() %>/?type=overview"
+              >
+                <button>Overview</button>
+              </a>
+              <a
+                href="/planets/<%= planet.name.toLowerCase() %>/?type=internal"
+              >
+                <button>Internal Structure</button>
+              </a>
+              <a href="/planets/<%= planet.name.toLowerCase() %>/?type=geology">
+                <button>Surface Geology</button>
+              </a>
+            </div>
           </div>
         </div>
         <!-- Planet Information -->
-        <div>
+        <div class="planet-info">
           <%- include('./partials/card', { header: "Rotation Time", content:
           planet.rotation_period}) %> <%- include('./partials/card', { header:
           "Revolution Time", content: planet.revolution_period}) %> <%-

@@ -1,4 +1,15 @@
-<div>
-  <span><%= header %></span>
+<div class="planet-card">
+  <style>
+    .planet-card {
+      padding: 1rem;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .planet-card-header {
+      color: var(--color-white);
+      opacity: 0.2;
+    }
+  </style>
+  <span class="planet-card-header"><%= header %></span>
   <h2><%= content %></h2>
 </div>
