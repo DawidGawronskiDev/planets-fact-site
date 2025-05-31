@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=League+Spartan:wght@100..900&display=swap");
+
+:root {
+  /* Base/Neutral Colors */
+  --color-white: #ffffff;
+  --color-dark-blue: #070724;
+  --color-dark-gray: #38384f;
+  --color-gray: #838391;
+
+  /* Planet Colors */
+  --color-mercury: #419ebb;
+  --color-venus: #eda249;
+  --color-earth: #6f2ed6;
+  --color-mars: #d14c32;
+  --color-jupiter: #d83a34;
+  --color-saturn: #cd5120;
+  --color-uranus: #1ec2a4;
+  --color-neptune: #2d68f0;
+
+  /* Typography */
+  --font-primary: "Antonio", sans-serif;
+  --font-secondary: "League Spartan", sans-serif;
+
+  /* Base font size - makes rem calculations easier */
+  font-size: 16px;
+}
+
+/* Typography Styles */
+h1 {
+  font-family: var(--font-primary);
+  font-weight: 500; /* Medium */
+  font-size: 5rem; /* 80px */
+  line-height: 6.44rem; /* 103px */
+}
+
+h2 {
+  font-family: var(--font-primary);
+  font-weight: 500; /* Medium */
+  font-size: 2.5rem; /* 40px */
+  line-height: 3.25rem; /* 52px */
+  letter-spacing: -0.094rem; /* -1.5px */
+}
+
+h3 {
+  font-family: var(--font-secondary);
+  font-weight: 700; /* Bold */
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.563rem; /* 25px */
+  letter-spacing: 0.163rem; /* +2.6px */
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: var(--font-secondary);
+  font-weight: 700; /* Bold */
+  font-size: 0.688rem; /* 11px */
+  line-height: 1.563rem; /* 25px */
+  letter-spacing: 0.063rem; /* +1px */
+  text-transform: uppercase;
+}
+
+p,
+body {
+  font-family: var(--font-secondary);
+  font-weight: 400; /* Regular */
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.563rem; /* 25px */
+}
+
+/* Additional utility classes */
+.text-white {
+  color: var(--color-white);
+}
+
+.text-gray {
+  color: var(--color-gray);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px; /* Slightly smaller base for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 12px; /* Even smaller base for mobile */
+  }
+
+  h1 {
+    font-size: 4rem; /* Scaled down for mobile */
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
