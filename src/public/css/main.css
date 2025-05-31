@@ -24,7 +24,7 @@
   /* Base font size - makes rem calculations easier */
   font-size: 16px;
 
-  --space: 1rem;
+  --space: 4rem;
 }
 
 /* Typography Styles */

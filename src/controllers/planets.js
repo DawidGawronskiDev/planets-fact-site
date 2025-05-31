@@ -22,6 +22,7 @@ async function getPlanetById(req, res) {
 
 async function getPlanetByName(req, res) {
   const planet = await Planet.getPlanetByName(req.params.name);
+  const type = req.query.type || "overview";
   if (!planet) {
     return res
       .status(404)
@@ -29,7 +30,8 @@ async function getPlanetByName(req, res) {
   }
   res.render("planet", {
     title: planet.name,
-    planet: planet,
+    planet,
+    type,
   });
 }
 

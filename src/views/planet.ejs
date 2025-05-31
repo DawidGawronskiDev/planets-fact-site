@@ -8,7 +8,7 @@
     <title><%= title %></title>
     <style>
       .planet {
-        margin: var(--space) 0 0 0;
+        margin: var(--space) auto 0 auto;
       }
       /* Planet Container */
       .planet-container {
@@ -37,12 +37,12 @@
       .planet-description-container {
         display: flex;
         flex-direction: column;
-        gap: var(--space);
+        gap: 1rem;
       }
       .planet-description {
         display: flex;
         flex-direction: column;
-        gap: var(--space);
+        gap: 1rem;
       }
       /* Planet Information */
       .planet-info {
@@ -52,7 +52,7 @@
 
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: var(--space);
+        gap: 1rem;
       }
       .planet-info > * {
         flex: 1;
@@ -60,7 +60,17 @@
       .planet-tabs {
         display: flex;
         flex-direction: column;
-        gap: var(--space);
+        gap: 1rem;
+      }
+      .planet-image-container {
+        position: relative;
+      }
+      .planet-image-container > *:nth-child(2) {
+        position: absolute;
+        width: 8rem;
+
+        bottom: 0;
+        transform: translate(0, 20%);
       }
       @media only screen and (max-width: 768px) {
         .planet-container {
@@ -81,24 +91,67 @@
       <div class="planet container">
         <div class="planet-container">
           <!-- Planet Image -->
-          <div>
+          <div class="planet-image-container">
+            <% if (!type || type === 'overview') { %>
             <img
               src="<%= planet.planet_image_path %>"
               alt="<%= planet.name %>"
               class="planet-image"
             />
+            <% } %> <% if (type === 'internal') { %>
+            <img
+              src="<%= planet.internal_image_path %>"
+              alt="<%= planet.name %>"
+              class="planet-image"
+            />
+            <% } %> <% if (type === 'geology') { %>
+            <img
+              src="<%= planet.planet_image_path %>"
+              alt="<%= planet.name %>"
+              class="planet-image"
+            />
+            <img
+              src="<%= planet.geology_image_path %>"
+              alt="<%= planet.name %>"
+              class="planet-image"
+            />
+            <% } %>
           </div>
           <!-- Planet Description -->
           <div class="planet-description-container">
             <div class="planet-description">
+              <!-- Planet Content -->
               <h1><%= planet.name %></h1>
+              <% if (!type || type === 'overview') { %>
               <p><%= planet.overview_content %></p>
+              <% } %> <% if (type === 'internal') { %>
+              <p><%= planet.structure_content %></p>
+              <% } %> <% if (type === 'geology') { %>
+              <p><%= planet.geology_content %></p>
+              <% } %>
+              <!-- Planet Source -->
+              <% if (!type || type === 'overview') { %>
               <span
                 >Source:
                 <a href="<%= planet.overview_source %>" target="_blank"
                   >Wikipedia
                   <img src="/assets/icon-source.svg" alt="Planet Source" /></a
               ></span>
+              <% } %> <% if (type === 'internal') { %>
+              <span
+                >Source:
+                <a href="<%= planet.structure_source %>" target="_blank"
+                  >Wikipedia
+                  <img src="/assets/icon-source.svg" alt="Planet Source" /></a
+              ></span>
+              <% } %> <% if (type === 'geology') { %>
+              <span
+                >Source:
+                <a href="<%= planet.geology_source %>" target="_blank"
+                  >Wikipedia
+                  <img src="/assets/icon-source.svg" alt="Planet Source" /></a
+              ></span>
+              <% } %>
             </div>
             <div class="planet-tabs">
               <a
