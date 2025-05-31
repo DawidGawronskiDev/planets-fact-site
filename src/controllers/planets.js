@@ -27,7 +27,10 @@ async function getPlanetByName(req, res) {
       .status(404)
       .json({ error: `Planet with name ${req.params.name} not found` });
   }
-  res.status(200).json(planet);
+  res.render("planet", {
+    title: planet.name,
+    planet: planet,
+  });
 }
 
 module.exports = {

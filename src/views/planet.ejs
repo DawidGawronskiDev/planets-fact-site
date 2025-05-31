@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main>
+      <div>
+        <div>
+          <!-- Planet Image -->
+          <div>
+            <img
+              src="<%= planet.planet_image_path %>"
+              alt="<%= planet.name %>"
+            />
+          </div>
+          <!-- Planet Description -->
+          <div>
+            <h1><%= planet.name %></h1>
+            <p><%= planet.overview_content %></p>
+            <span
+              >Source:
+              <a href="<%= planet.overview_source %>" target="_blank"
+                >Wikipedia</a
+              ></span
+            >
+          </div>
+        </div>
+        <!-- Planet Information -->
+        <div>
+          <%- include('./partials/card', { header: "Rotation Time", content:
+          planet.rotation_period}) %> <%- include('./partials/card', { header:
+          "Revolution Time", content: planet.revolution_period}) %> <%-
+          include('./partials/card', { header: "Radius", content:
+          planet.radius_km}) %> <%- include('./partials/card', { header:
+          "Average Temp.", content: planet.temperature_celsius}) %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
