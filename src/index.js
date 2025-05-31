@@ -10,6 +10,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 /**
+ * Setup views
+ *  @description This sets up the view engine for rendering HTML templates.
+ *               In this case, it uses EJS (Embedded JavaScript) as the templating engine.
+ */
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+/**
  * Public folder
  * @description  This serves static files from the "public" directory.
  *               You can place your HTML, CSS, JavaScript, and images here.
@@ -22,7 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
  *               the root URL is accessed.
  */
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.render("index", { title: "Home" });
 });
 
 /**
