@@ -1,0 +1,26 @@
+{
+  "name": "planets-fact-site",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DawidGawronskiDev/planets-fact-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DawidGawronskiDev/planets-fact-site/issues"
+  },
+  "homepage": "https://github.com/DawidGawronskiDev/planets-fact-site#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "sqlite3": "^5.1.7"
+  }
+}
