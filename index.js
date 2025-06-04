@@ -7,7 +7,7 @@ const path = require("path");
  *               from a "public" directory and listens on a specified port.
  */
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 5000;
 
 /**
  * Setup views
